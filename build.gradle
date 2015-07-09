@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'appengine'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath "com.google.appengine:gradle-appengine-plugin:1.9.21"
+    }
+}
+
+
+dependencies {
+	appengineSdk "com.google.appengine:appengine-java-sdk:1.9.21"
+ 	compile "javax.servlet:servlet-api:2.5"
+ 	compile "com.google.appengine:appengine-api-1.0-sdk:1.9.21"
+ 	compile "com.googlecode.objectify:objectify:5.1.5"
+
+    compile group: 'commons-io', name: 'commons-io', version: '1.4'
+    compile group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+    
+    testCompile 'junit:junit:4.12'
+    
+    testCompile 'com.google.appengine:appengine-testing:1.9.21'
+    testCompile 'com.google.appengine:appengine-api-stubs:1.9.21'
+    
+}
+
+appengine {
+  httpPort = 8888
+  downloadSdk = true
+
+  appcfg {
+    email = "admin@emessage.com"
+    noCookies = true
+    oauth2 = true
+  }
+}
+
+eclipse {
+    classpath {
+       downloadSources=true
+    }
+}
