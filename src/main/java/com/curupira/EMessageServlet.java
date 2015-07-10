@@ -21,7 +21,7 @@ public class EMessageServlet extends HttpServlet{
 		String content = req.getParameter("content");
 		
 		EMessage eMessage = new EMessage(null, title, content, "pt-br", new Date());
-		
+		eMessage.encodeContent();
 		eMessage.persist();
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/created.jsp");
 		dispatcher.forward(req, resp);

@@ -22,7 +22,8 @@ dependencies {
  	compile "javax.servlet:servlet-api:2.5"
  	compile "com.google.appengine:appengine-api-1.0-sdk:1.9.21"
  	compile "com.googlecode.objectify:objectify:5.1.5"
-
+	compile 'commons-codec:commons-codec:1.10'
+	
     compile group: 'commons-io', name: 'commons-io', version: '1.4'
     compile group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
     

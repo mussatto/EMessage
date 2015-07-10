@@ -18,7 +18,6 @@ public class EMessage {
 		this.language = language;
 		this.lastUpdated = lastUpdated;
 		this.pass = UUID.randomUUID().toString();
-		encodeContent(content);
 	}
 	
 	@Id
@@ -68,8 +67,8 @@ public class EMessage {
 	}
 	
 	
-	public void encodeContent(String pass){
-		this.content = MessageEncoder.encode(content, pass);
+	public void encodeContent(){
+		this.content = MessageEncoder.encode(content, getPass());
 	}
 
 	public String getPass() {

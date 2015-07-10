@@ -14,8 +14,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
+
 
 
 public class MessageEncoder {
@@ -27,12 +27,12 @@ public class MessageEncoder {
 			keySpec = new DESKeySpec(passKey.getBytes("UTF8"));
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
 			SecretKey key = keyFactory.generateSecret(keySpec);
-			BASE64Encoder base64encoder = new BASE64Encoder();
+			Base64 base64encoder = new Base64();
 			byte[] cleartext = toEncode.getBytes("UTF8");      
 
 			Cipher cipher = Cipher.getInstance("DES");
 			cipher.init(Cipher.ENCRYPT_MODE, key);
-			String encryptedPwd = base64encoder.encode(cipher.doFinal(cleartext));
+			String encryptedPwd = new String(base64encoder.encode(cipher.doFinal(cleartext)));
 			return encryptedPwd;
 		} catch (InvalidKeyException e) {
 			e.printStackTrace();
@@ -61,8 +61,9 @@ public class MessageEncoder {
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
 			SecretKey key = keyFactory.generateSecret(keySpec);
 			
-			BASE64Decoder base64decoder = new BASE64Decoder();
-			byte[] encrypedPwdBytes = base64decoder.decodeBuffer(encoded);
+			Base64 base64decoder = new Base64();
+			
+			byte[] encrypedPwdBytes = base64decoder.decode(encoded);
 
 			Cipher cipher = Cipher.getInstance("DES");
 			cipher.init(Cipher.DECRYPT_MODE, key);
