@@ -1,8 +1,9 @@
-package com.curupira;
+package com.curupira.entity;
 
 import java.util.Date;
 import java.util.UUID;
 
+import com.curupira.MessageEncoder;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
@@ -11,6 +12,9 @@ import com.googlecode.objectify.annotation.Id;
 @Entity
 public class EMessage {
 	
+	public EMessage(){
+		
+	}
 	public EMessage(String id, String title, String content, String language, Date lastUpdated) {
 		super();
 		this.title = title;
@@ -80,9 +84,10 @@ public class EMessage {
 		ofy = ObjectifyService.ofy();
 		return ofy.load().type(EMessage.class).id(id).now();
 	}
-
 	
-	
+	public String decodeContent(String pass){
+		return MessageEncoder.decode(this.content, pass);	
+	}
 	
 
 }

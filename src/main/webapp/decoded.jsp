@@ -6,11 +6,11 @@
 	<jsp:include page="includes/head.jsp"></jsp:include>
 	<body>
 	<jsp:include page="includes/menu.jsp"></jsp:include>
-	
+	<% String decoded = (String) request.getAttribute("decodedMessage"); %>
 	
 	<div class="container">
 
-      <p>Message created successfully!</p>
+      <p><%= decoded %></p>
 
     </div>
 </html>

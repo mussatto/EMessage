@@ -3,7 +3,7 @@ package com.curupira.helper;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.curupira.EMessage;
+import com.curupira.entity.EMessage;
 import com.googlecode.objectify.ObjectifyService;
 
 public class OfyHelper implements ServletContextListener{

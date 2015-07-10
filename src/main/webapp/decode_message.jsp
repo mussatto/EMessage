@@ -11,14 +11,13 @@
 	<div class="container">
 
       <div>
-        <form action="/createMessage">
+        <form action="/decodeMessage">
         	<div>
-	        	<label for="title">Title</label>
-	        	<input name="title" id="title"/>
-        	</div>
-        	<div>
-        		<label for="content">Content</label>
-        		<input name="content" id="content"/>
+	        	<label for="id">Message Id</label>
+	        	<input name="id" id="id"/>
+	        	
+	        	<label for="pass">Message Pass</label>
+	        	<input name="pass" id="pass"/>
         	</div>
         	<input type="submit" value="create"/>
         </form>
