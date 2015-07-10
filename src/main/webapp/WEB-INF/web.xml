@@ -35,7 +35,7 @@
     </filter-mapping>
     
     <listener>
-      <listener-class>com.curupira.OfyHelper</listener-class>
+      <listener-class>com.curupira.helper.OfyHelper</listener-class>
     </listener>
     
 </web-app>
