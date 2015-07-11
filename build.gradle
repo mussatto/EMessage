@@ -3,6 +3,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'war'
 apply plugin: 'appengine'
+apply plugin: 'maven'
 
 repositories {
     mavenLocal()
@@ -50,4 +51,24 @@ eclipse {
     classpath {
        downloadSources=true
     }
+}
+
+
+task createPom << {
+    pom {
+        project {
+            groupId 'com.curupira'
+            artifactId 'emessage'
+            version '0.1.0'
+
+            inceptionYear '2015'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("pom.xml")
 }
