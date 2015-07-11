@@ -26,7 +26,7 @@
 		}
 	</script>
 	
-	<div class="container">
+	<div class="content">
 
       <div>
         <form action="/decodeMessage">
@@ -48,6 +48,7 @@
       </div>
 
     </div>
+    </body>
 </html>
 
 

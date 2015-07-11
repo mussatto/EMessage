@@ -25,7 +25,7 @@
 				});
 		}
 	</script>
-	<div class="container">
+	<div class="content">
 
       <div>
         <form id="createMessageForm" action="/createMessage">
@@ -45,6 +45,7 @@
       </div>
 
     </div>
+    </body>
 </html>
 
 
