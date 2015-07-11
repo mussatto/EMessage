@@ -20,7 +20,7 @@
 				  },
 				  success: function( data ) {
 					var parsed = JSON.parse(data);
-				    $( "#response" ).html( "<div class='alert alert-success'><h1>Message Created! Info:</h1><p> Message ID:</p><p>" + parsed.id + "</p> <p>Message Pass:</p><p>"+parsed.pass+"</p></div>" );
+				    $( "#response" ).html( "<div class='alert alert-success'><h1>Message Created! Info:</h1><h2> Message ID:</h2><p>" + parsed.id + "</p> <h2>Message Pass:</h2><p>"+parsed.pass+"</p></div>" );
 				  }
 				});
 		}
@@ -42,7 +42,7 @@
         </form>
       </div>
       
-      <div id="response">
+      <div id="response"  class="response">
       </div>
 
     </div>

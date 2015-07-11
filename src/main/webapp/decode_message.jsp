@@ -44,7 +44,7 @@
         </form>
       </div>
       
-      <div id="response">
+      <div id="response" class="response">
       </div>
 
     </div>
