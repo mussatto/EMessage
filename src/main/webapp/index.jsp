@@ -13,6 +13,13 @@
       <div>
         <h1>eMessaging</h1>
         <p class="lead">Send messages to your friends in any language!</p>
+        
+        <div>
+        	<a href="/create_message.jsp">Create a Message!</a>
+        </div>
+        <div>
+        	<a href="/decode_message.jsp">Decode a Message!</a>
+        </div>
       </div>
 
     </div>

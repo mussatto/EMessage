@@ -20,7 +20,7 @@
 				  },
 				  success: function( data ) {
 					var parsed = JSON.parse(data);
-				    $( "#response" ).html( "<h1>"+parsed.title+"</h1><p> Message:" + parsed.response + "</p>" );
+				    $( "#response" ).html( "<div class='alert alert-success'><h1>Message decoded:</h1><p>"+parsed.title+"</p><p>" + parsed.response + "</p></div>" );
 				  }
 				});
 		}
@@ -29,18 +29,18 @@
 	<div class="content">
 
       <div>
-        <form action="/decodeMessage">
+        <form role="form" action="/decodeMessage">
         	<div>
-        		<div>
+        		<div class="form-group">
 		        	<label for="id">Message Id</label>
-		        	<input name="id" id="id"/>
+		        	<input name="id" id="id" class="form-control"/>
 	        	</div>
-	        	<div>
+	        	<div class="form-group">
 		        	<label for="pass">Message Pass</label>
-		        	<input name="pass" id="pass"/>
+		        	<input name="pass" id="pass" class="form-control"/>
 	        	</div>
         	</div>
-        	<input type="button" value="decode" onclick="submitDecodeMessage();"/>
+        	<input type="button" value="decode" class="btn btn-default"  onclick="submitDecodeMessage();"/>
         </form>
       </div>
       

@@ -20,7 +20,7 @@
 				  },
 				  success: function( data ) {
 					var parsed = JSON.parse(data);
-				    $( "#response" ).html( "<p> Message ID:</p><p>" + parsed.id + "</p> <p>Message Pass:</p><p>"+parsed.pass+"</p>" );
+				    $( "#response" ).html( "<div class='alert alert-success'><h1>Message Created! Info:</h1><p> Message ID:</p><p>" + parsed.id + "</p> <p>Message Pass:</p><p>"+parsed.pass+"</p></div>" );
 				  }
 				});
 		}
@@ -28,16 +28,17 @@
 	<div class="content">
 
       <div>
-        <form id="createMessageForm" action="/createMessage">
-        	<div>
+        <form role="form" id="createMessageForm" action="/createMessage">
+        	<div class="form-group">
 	        	<label for="title">Title</label>
-	        	<input name="title" id="title"/>
+	        	<input name="title" id="title" class="form-control"/>
         	</div>
-        	<div>
+        	<div class="form-group">
         		<label for="content">Content</label>
-        		<input name="content" id="content"/>
+        		<textarea name="content" id="content" class="form-control" >
+        		</textarea>
         	</div>
-        	<input type="button" value="create" onclick="submitCreateMessage()"/>
+        	<input type="button" value="create" class="btn btn-default" onclick="submitCreateMessage()"/>
         </form>
       </div>
       

@@ -22,7 +22,7 @@ public class DecoderServlet extends HttpServlet{
 		
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
-		if(id ==null || pass==null){
+		if(id ==null || pass==null || "".equals(id) || "".equals(pass)){
 			resp.getWriter().print("");
 			resp.getWriter().close();
 			return;
