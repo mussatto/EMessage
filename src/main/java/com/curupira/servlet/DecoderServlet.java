@@ -2,7 +2,6 @@ package com.curupira.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +30,7 @@ public class DecoderServlet extends HttpServlet{
 		long longId = Long.valueOf(id);
 		
 		EMessage message = EMessage.find(longId);
+		System.out.println("Pass is:'" + pass+"'");
 		String decodedMessage = message.decodeContent(pass);
 		
 		JSONObject response = getJsonObject(decodedMessage, message.getTitle());

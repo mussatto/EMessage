@@ -23,10 +23,11 @@ public class EMessageServlet extends HttpServlet{
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String isEncodedStr = req.getParameter("isEncoded");
-		boolean isEncoded = false;
-		if("true".equals(isEncodedStr)){
-			isEncoded=true;
-		}
+		boolean isEncoded = true;
+		
+//		if("true".equals(isEncodedStr)){
+//			isEncoded=true;
+//		}
 		EMessage eMessage = createMessage(title, content,isEncoded);
 		JSONObject response = getJsonObject(eMessage);
 		resp.getWriter().print(response.toString());
