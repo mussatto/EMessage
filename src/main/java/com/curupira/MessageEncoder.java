@@ -56,6 +56,7 @@ public class MessageEncoder {
 	
 	public static String decode(String encoded, String password){
 		DESKeySpec keySpec;
+		String decoded="No message for this!";
 		try {
 			keySpec = new DESKeySpec(password.getBytes("UTF8"));
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
@@ -69,24 +70,10 @@ public class MessageEncoder {
 			cipher.init(Cipher.DECRYPT_MODE, key);
 			byte[] plainTextPwdBytes = (cipher.doFinal(encrypedPwdBytes));
 			
-			return new String(plainTextPwdBytes);
-		} catch (InvalidKeyException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (InvalidKeySpecException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
-			e.printStackTrace();
-		} catch (IllegalBlockSizeException e) {
-			e.printStackTrace();
-		} catch (BadPaddingException e) {
+			decoded = new String(plainTextPwdBytes);
+		} catch(Exception e){
 			e.printStackTrace();
 		}
-		return null;
+		return decoded;
 	}
 }

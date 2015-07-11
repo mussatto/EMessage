@@ -7,10 +7,15 @@
 	<body>
 	<jsp:include page="includes/menu.jsp"></jsp:include>
 	
-	
+	<%
+		Long id = (Long) request.getAttribute("id"); 
+		String pass = (String) request.getAttribute("pass");
+	%>
 	<div class="container">
 
       <p>Message created successfully!</p>
+      <p>message id: <%= id %></p>
+      <p>message pass: <%= pass %>
 
     </div>
 </html>
