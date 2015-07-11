@@ -7,20 +7,44 @@
 	<body>
 	<jsp:include page="includes/menu.jsp"></jsp:include>
 	
+	<script type="text/javascript">
+		function submitDecodeMessage(){
+			var id = $("#id").val();
+			var pass = $("#pass").val();
+			
+			$.ajax({
+				  url: "/decodeMessage",
+				  data: {
+				    id: id,
+				    pass: pass
+				  },
+				  success: function( data ) {
+					var parsed = JSON.parse(data);
+				    $( "#response" ).html( "<h1>"+parsed.title+"</h1><p> Message:" + parsed.response + "</p>" );
+				  }
+				});
+		}
+	</script>
 	
 	<div class="container">
 
       <div>
         <form action="/decodeMessage">
         	<div>
-	        	<label for="id">Message Id</label>
-	        	<input name="id" id="id"/>
-	        	
-	        	<label for="pass">Message Pass</label>
-	        	<input name="pass" id="pass"/>
+        		<div>
+		        	<label for="id">Message Id</label>
+		        	<input name="id" id="id"/>
+	        	</div>
+	        	<div>
+		        	<label for="pass">Message Pass</label>
+		        	<input name="pass" id="pass"/>
+	        	</div>
         	</div>
-        	<input type="submit" value="create"/>
+        	<input type="button" value="decode" onclick="submitDecodeMessage();"/>
         </form>
+      </div>
+      
+      <div id="response">
       </div>
 
     </div>

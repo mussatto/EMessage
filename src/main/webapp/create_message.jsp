@@ -7,11 +7,28 @@
 	<body>
 	<jsp:include page="includes/menu.jsp"></jsp:include>
 	
-	
+	<script type="text/javascript">
+		function submitCreateMessage(){
+			var title = $("#title").val();
+			var content = $("#content").val();
+			
+			$.ajax({
+				  url: "/createMessage",
+				  data: {
+				    title: title,
+				    content: content
+				  },
+				  success: function( data ) {
+					var parsed = JSON.parse(data);
+				    $( "#response" ).html( "<p> Message ID:</p><p>" + parsed.id + "</p> <p>Message Pass:</p><p>"+parsed.pass+"</p>" );
+				  }
+				});
+		}
+	</script>
 	<div class="container">
 
       <div>
-        <form action="/createMessage">
+        <form id="createMessageForm" action="/createMessage">
         	<div>
 	        	<label for="title">Title</label>
 	        	<input name="title" id="title"/>
@@ -20,8 +37,11 @@
         		<label for="content">Content</label>
         		<input name="content" id="content"/>
         	</div>
-        	<input type="submit" value="create"/>
+        	<input type="button" value="create" onclick="submitCreateMessage()"/>
         </form>
+      </div>
+      
+      <div id="response">
       </div>
 
     </div>

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.curupira.entity.EMessage;
 
 public class DecoderServlet extends HttpServlet{
@@ -17,22 +19,32 @@ public class DecoderServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException{
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/decoded.jsp");
 		
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
 		if(id ==null || pass==null){
-			dispatcher.forward(req, resp);
+			resp.getWriter().print("");
+			resp.getWriter().close();
+			return;
 		}
 		
 		long longId = Long.valueOf(id);
+		
 		EMessage message = EMessage.find(longId);
-		
 		String decodedMessage = message.decodeContent(pass);
-		req.setAttribute("decodedMessage", decodedMessage);
 		
-		dispatcher.forward(req, resp);
+		JSONObject response = getJsonObject(decodedMessage, message.getTitle());
 		
+		resp.getWriter().print(response.toString());
+		resp.getWriter().close();
+		
+	}
+
+	private JSONObject getJsonObject(String decodedMessage, String title) {
+		JSONObject response = new JSONObject();
+		response.put("response", decodedMessage);
+		response.put("title", title);
+		return response;
 	}
 	
 	@Override
