@@ -12,8 +12,13 @@
     </servlet>
     
     <servlet>
-    	<servlet-name>DecoderServlet</servlet-name>
-    	<servlet-class>com.curupira.servlet.DecoderServlet</servlet-class>
+    	<servlet-name>MessageDecoderServlet</servlet-name>
+    	<servlet-class>com.curupira.servlet.MessageDecoderServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+    	<servlet-name>MessageContentDecoderServlet</servlet-name>
+    	<servlet-class>com.curupira.servlet.MessageContentDecoderServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -27,8 +32,13 @@
     </servlet-mapping>
     
     <servlet-mapping>
-    	<servlet-name>DecoderServlet</servlet-name>
+    	<servlet-name>MessageDecoderServlet</servlet-name>
     	<url-pattern>/decodeMessage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    	<servlet-name>MessageContentDecoderServlet</servlet-name>
+    	<url-pattern>/contentDecodeMessage</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>

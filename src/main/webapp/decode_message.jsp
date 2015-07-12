@@ -24,6 +24,25 @@
 				  }
 				});
 		}
+		
+		function submitDecodeContentMessage(){
+			var pass = $("#pass2").val();
+			var content = $("#content").val();
+			
+			$.ajax({
+				  url: "/contentDecodeMessage",
+				  data: {
+					pass: pass,
+				    content: content
+				  },
+				  success: function( data ) {
+					var parsed = JSON.parse(data);
+				    $( "#response" ).html( "<div class='alert alert-success'><h1>Message decoded:</h1><p>"+parsed.title+"</p><p>" + parsed.response + "</p></div>" );
+				  }
+				});
+		}
+		
+		
 	</script>
 	
 	<div class="content">
@@ -43,6 +62,24 @@
         	<input type="button" value="decode" class="btn btn-default"  onclick="submitDecodeMessage();"/>
         </form>
       </div>
+      
+      <div>
+        <form role="form" action="/contentDecodeMessage">
+        	<div>
+        		<div class="form-group">
+		        	<label for="pass2">Message Pass</label>
+		        	<input name="pass2" id="pass2" class="form-control"/>
+	        	</div>
+	        	<div class="form-group">
+		        	<label for="content">Message Content</label>
+		        	<input name="content" id="content" class="form-control"/>
+	        	</div>
+        	</div>
+        	<input type="button" value="decode" class="btn btn-default"  onclick="submitDecodeContentMessage();"/>
+        </form>
+      </div>
+      
+      
       
       <div id="response" class="response">
       </div>

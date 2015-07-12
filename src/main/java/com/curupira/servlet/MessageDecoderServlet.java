@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 import com.curupira.entity.EMessage;
 
-public class DecoderServlet extends HttpServlet{
+public class MessageDecoderServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 257061602133135926L;
 	
@@ -21,6 +21,7 @@ public class DecoderServlet extends HttpServlet{
 		
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
+		
 		if(id ==null || pass==null || "".equals(id) || "".equals(pass)){
 			resp.getWriter().print("");
 			resp.getWriter().close();

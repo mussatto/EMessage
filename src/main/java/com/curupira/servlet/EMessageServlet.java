@@ -47,6 +47,7 @@ public class EMessageServlet extends HttpServlet{
 		JSONObject response = new JSONObject();
 		response.put("id", eMessage.getId());
 		response.put("pass", eMessage.getPass());
+		response.put("encodedMessage", eMessage.getContent());
 		return response;
 	}
 
