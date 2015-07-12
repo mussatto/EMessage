@@ -22,7 +22,6 @@ public class EMessageServlet extends HttpServlet{
 		
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
-		String isEncodedStr = req.getParameter("isEncoded");
 		boolean isEncoded = true;
 		
 //		if("true".equals(isEncodedStr)){
@@ -32,6 +31,12 @@ public class EMessageServlet extends HttpServlet{
 		JSONObject response = getJsonObject(eMessage);
 		resp.getWriter().print(response.toString());
 		resp.getWriter().close();
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException{
+		doGet(req, resp);
 	}
 
 	private EMessage createMessage(String title, String content, boolean isEncoded) {

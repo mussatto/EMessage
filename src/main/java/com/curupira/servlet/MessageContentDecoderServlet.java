@@ -34,7 +34,7 @@ public class MessageContentDecoderServlet  extends HttpServlet{
 		resp.getWriter().close();
 		
 	}
-
+	
 	private JSONObject getJsonObject(String decodedMessage) {
 		JSONObject response = new JSONObject();
 		response.put("response", decodedMessage);
