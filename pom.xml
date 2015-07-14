@@ -11,8 +11,8 @@
   <properties>
         <app.id>emessage</app.id>
         <app.version>${version}</app.version>
-        <appengine.version>1.9.22</appengine.version>
-        <gcloud.plugin.version>0.9.58.v20150505</gcloud.plugin.version>
+        <appengine.version>1.9.23</appengine.version>
+        <gcloud.plugin.version>1.9.17a</gcloud.plugin.version>
 
         <objectify.version>5.1.5</objectify.version>
         <guava.version>18.0</guava.version>
@@ -99,7 +99,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.1</version>
+                <version>2.2</version>
                 <executions>
                     <execution>
                         <phase>compile</phase>
@@ -112,7 +112,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <version>3.1</version>
+                <version>3.3</version>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.7</source>
@@ -122,7 +122,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.6</version>
                 <configuration>
                     <archiveClasses>true</archiveClasses>
                     <webResources>
