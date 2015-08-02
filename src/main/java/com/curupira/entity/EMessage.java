@@ -16,13 +16,27 @@ public class EMessage {
 	public EMessage(){
 		
 	}
-	public EMessage(String id, String title, String content, String language, Date lastUpdated) {
+	private EMessage(String id, String title, String content, String language, Date lastUpdated, String pass) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.language = language;
 		this.lastUpdated = lastUpdated;
-		this.pass = UUID.randomUUID().toString();
+		this.pass = pass;
+	}
+	
+	public static EMessage createMessage(String id, 
+			String title, 
+			String content, 
+			String language, 
+			Date lastUpdated, 
+			String pass) {
+		EMessage emessage;
+		if(pass!=null)
+			emessage = new EMessage(id,title, content, language, lastUpdated,pass);
+		else
+			emessage = new EMessage(id,title, content, language, lastUpdated,UUID.randomUUID().toString());
+		return emessage;
 	}
 	
 	@Id

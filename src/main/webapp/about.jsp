@@ -8,7 +8,8 @@
 	
 	<div class="container">
 
-      <p>About this website:</p>
+      <p>website written in java to run on app engine</p>
+      <p>creating simple encoded messages</p>
 
     </div>
 </html>

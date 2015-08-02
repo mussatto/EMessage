@@ -22,12 +22,13 @@ public class EMessageServlet extends HttpServlet{
 		
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
+		String pass = req.getParameter("pass");
 		boolean isEncoded = true;
 		
 //		if("true".equals(isEncodedStr)){
 //			isEncoded=true;
 //		}
-		EMessage eMessage = createMessage(title, content,isEncoded);
+		EMessage eMessage = createMessage(title, content,isEncoded,pass);
 		JSONObject response = getJsonObject(eMessage);
 		resp.getWriter().print(response.toString());
 		resp.getWriter().close();
@@ -39,8 +40,8 @@ public class EMessageServlet extends HttpServlet{
 		doGet(req, resp);
 	}
 
-	private EMessage createMessage(String title, String content, boolean isEncoded) {
-		EMessage eMessage = new EMessage(null, title, content, "pt-br", new Date());
+	private EMessage createMessage(String title, String content, boolean isEncoded, String pass) {
+		EMessage eMessage = EMessage.createMessage(null, title, content, "pt-br", new Date(), pass);
 		if(isEncoded){
 			eMessage.encodeContent();
 		}

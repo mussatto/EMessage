@@ -2,11 +2,6 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     
     <servlet>
-    	<servlet-name>HomeServlet</servlet-name>
-    	<servlet-class>com.curupira.servlet.HomeServlet</servlet-class>
-    </servlet>
-    
-    <servlet>
     	<servlet-name>EMessageServlet</servlet-name>
     	<servlet-class>com.curupira.servlet.EMessageServlet</servlet-class>
     </servlet>
@@ -20,11 +15,6 @@
     	<servlet-name>MessageContentDecoderServlet</servlet-name>
     	<servlet-class>com.curupira.servlet.MessageContentDecoderServlet</servlet-class>
     </servlet>
-    
-    <servlet-mapping>
-    	<servlet-name>HomeServlet</servlet-name>
-    	<url-pattern>/home</url-pattern>
-    </servlet-mapping>
     
     <servlet-mapping>
     	<servlet-name>EMessageServlet</servlet-name>

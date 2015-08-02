@@ -40,7 +40,7 @@ public class EMessageTest {
 		String content="Is this the real life? Is this just a fantasy?";
 		String language="en";
 		Date lastUpdated=new Date();
-		EMessage message = new EMessage(id, title, content, language, lastUpdated);
+		EMessage message = EMessage.createMessage(id, title, content, language, lastUpdated,null);
 		
 		message.persist();
 		

@@ -8,7 +8,8 @@
 	
 	<div class="container">
 
-      <p>In here information about my contacts:</p>
+      <a href="https://br.linkedin.com/in/vitormussatto">Linkedin</a>
+      <a href="https://github.com/mussatto/">github</a>
 
     </div>
 </html>
