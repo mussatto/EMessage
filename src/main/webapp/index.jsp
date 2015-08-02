@@ -11,14 +11,15 @@
 	<div class="container">
 
       <div>
-        <h1>eMessaging</h1>
-        <p class="lead">Send messages to your friends in any language!</p>
         
         <div>
-        	<a href="/create_message.jsp">Create a Message!</a>
+        	<p>Create a Message</p>
+        	
+        	<jsp:include page="_createMessageForm.jsp"></jsp:include>
         </div>
         <div>
-        	<a href="/decode_message.jsp">Decode a Message!</a>
+        	<p>Decode a Message</p>
+        	<jsp:include page="_decodeMessageForm.jsp"></jsp:include>
         </div>
       </div>
 

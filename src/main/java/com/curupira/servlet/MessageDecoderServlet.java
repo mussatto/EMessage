@@ -31,7 +31,6 @@ public class MessageDecoderServlet extends HttpServlet{
 		long longId = Long.valueOf(id);
 		
 		EMessage message = EMessage.find(longId);
-		System.out.println("Pass is:'" + pass+"'");
 		String decodedMessage = message.decodeContent(pass);
 		
 		JSONObject response = getJsonObject(decodedMessage, message.getTitle());

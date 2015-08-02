@@ -1,4 +1,4 @@
-package com.curupira.servlet;
+	package com.curupira.servlet;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ public class MessageContentDecoderServlet  extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException{
 		
-		String content = req.getParameter("content");
+		String content = req.getParameter("encodedcontent");
 		String pass = req.getParameter("pass");
 		if(content ==null || pass==null || "".equals(content) || "".equals(pass)){
 			resp.getWriter().print("");
@@ -27,7 +27,7 @@ public class MessageContentDecoderServlet  extends HttpServlet{
 			return;
 		}
 		
-		String decodedMessage = MessageEncoder.decode(content, pass);
+		String decodedMessage = MessageEncoder.decode(content.trim(), pass.trim());
 		JSONObject response = getJsonObject(decodedMessage);
 		
 		resp.getWriter().print(response.toString());
