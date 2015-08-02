@@ -10,8 +10,7 @@
    	</div>
    	<div class="form-group">
    		<label for="content">Content</label>
-   		<textarea name="content" id="content" class="form-control" >
-   		</textarea>
+   		<textarea name="content" id="content" class="form-control" ></textarea>
    	</div>
    	<input type="button" value="create" class="btn btn-default" onclick="submitCreateMessage()"/>
    </form>
