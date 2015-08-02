@@ -10,7 +10,10 @@ function submitDecodeMessage(){
 		  },
 		  success: function( data ) {
 			var parsed = JSON.parse(data);
-		    $( "#responseDecode" ).html( "<div class='alert alert-success'><p>Message decoded:</p><p>"+parsed.title+"</p><p>" + parsed.response + "</p></div>" );
+		    $( "#responseDecode" ).html( "<div class='alert alert-success'>" +
+		    		"<p>title: "+parsed.title+"</p>" +
+		    		"<p>content:" + parsed.response + "</p>" +
+					"</div>" );
 		  }
 		});
 }
@@ -26,7 +29,9 @@ function submitDecodeContentMessage(){
 		  },
 		  success: function( data ) {
 			var parsed = JSON.parse(data);
-		    $( "#responseDecode" ).html( "<div class='alert alert-success'><p>Message decoded:</p><p>" + parsed.response + "</p></div>" );
+		    $( "#responseDecode" ).html( "<div class='alert alert-success'>" +
+		    		"<p>content: " + parsed.response + "</p>" 
+		    		+ "</div>" );
 		  }
 		});
 }
