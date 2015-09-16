@@ -14,7 +14,7 @@ function submitCreateMessage(){
 			var parsed = JSON.parse(data);
 		    $( "#response" ).html( "<div class='alert alert-success'>"
 		    		+"<p>id: "+ parsed.id + "</p>"
-		    		+"<p>pass: " parsed.pass+"</p>"
+		    		+"<p>pass: " +parsed.pass+"</p>"
 		    		+"<p>encoded: "+parsed.encodedMessage +"<p>"
 		    		+"</div>" );
 		  }
